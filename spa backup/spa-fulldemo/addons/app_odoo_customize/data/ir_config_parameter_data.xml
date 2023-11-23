@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+
+        <function model="ir.config_parameter" name="set_param" eval="('app_system_name', 'plugandplaysmart จำหน่าย ซ่อม คอมพิวเตอร์ โน๊ตบุ๊คและอุปกรณ์ต่อพวง')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_lang', 'True')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_debug', 'False')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_documentation', 'True')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_documentation_dev', 'False')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_support', 'True')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_account', 'True')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_enterprise', 'False')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_share', 'False')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_show_poweredby', 'False')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_documentation_url', 'https://plug.zabdoo.com/support/help')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_documentation_dev_url', 'https://plug.zabdoo.com/support/help')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_support_url', 'https://plug.zabdoo.com/forum/ayuda-1')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_account_title', 'Mi Cuenta Daeris')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_account_url', 'https://plug.zabdoo.com/web/login')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_ribbon_name', 'Sunpop.cn({db_name})')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_ribbon_color', '#f0f0f0')"/>
+        <function model="ir.config_parameter" name="set_param" eval="('app_ribbon_background_color', 'rgba(255,0,0,.4)')"/>
+    </data>
+</openerp>

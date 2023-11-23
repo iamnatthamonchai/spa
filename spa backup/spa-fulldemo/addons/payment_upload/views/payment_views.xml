@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="payment_acquirer_view_form_inherit_transfer" model="ir.ui.view">
+        <field name="name">upload.transfer</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.payment_acquirer_form"/>
+        <field name="arch" type="xml">
+            <page name="acquirer_credentials" position="attributes">
+                <attribute name="attrs">{'invisible': [('provider', 'in', ['manual', 'transfer'])]}</attribute>
+            </page>
+            <field name="pre_msg" position="attributes">
+                <attribute name="attrs">{'invisible': [('provider', '=', 'transfer')]}</attribute>
+            </field>
+            <field name="done_msg" position="attributes">
+                <attribute name="attrs">{'invisible': [('provider', '=', 'transfer')]}</attribute>
+            </field>
+            <field name="cancel_msg" position="attributes">
+                <attribute name="attrs">{'invisible': [('provider', '=', 'transfer')]}</attribute>
+            </field>
+            <xpath expr="//group[@name='payment_form']" position="after">
+                <group string="PromptPay QR code" name="promptpay_group">
+                    <field
+                        name="qr_code_promptpay"
+                        attrs="{'invisible': [('provider', '!=', 'transfer')]}"
+                    />
+                    <field
+                        name="promptpay_id"
+                        attrs="{'invisible': [('provider', '!=', 'transfer')]}"
+                    />
+                </group>
+
+                <group string="Bank Account" name="bank_account_group">
+                    <field
+                        name="bank_name"
+                        attrs="{'invisible': [('provider', '!=', 'transfer')]}"
+                    />
+                    <field
+                        name="bank_account_number"
+                        attrs="{'invisible': [('provider', '!=', 'transfer')]}"
+                    />
+                    <field
+                        name="bank_account_holder_name"
+                        attrs="{'invisible': [('provider', '!=', 'transfer')]}"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

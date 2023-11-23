@@ -1,0 +1,30 @@
+.o_form_sheet.sh_full_form {
+    min-width: 98% !important;
+    max-width: 98% !important;
+}
+.modal .modal-dialog .o_form_sheet.sh_full_form{min-width: 100% !important;max-width: 100% !important;}
+.o_form_sheet .sh_full_screen_icon_div svg{width: 16px;fill: $primaryColor;}
+.o_form_sheet .sh_full_screen_icon_div .full_form_toggle{border: 1px solid rgb(204, 204, 204);
+    padding: 2px 2px;
+    background: transparent;
+    border-top: 0px;
+    border-right: 0px;
+    position: absolute;
+    top: -1px;
+    right: 0px;
+}
+.o_form_sheet .sh_full_screen_icon_div{position: absolute;top: 0px;right: 0px;z-index: 2;}
+.o_form_sheet .sh_full_screen_icon_div{height: 0px;line-height: 16px;cursor: pointer;}
+@media only screen and (max-width: 992px){
+    .o_form_sheet .sh_full_screen_icon_div{display: none;}
+}
+@if $theme_style == 'style_6'{ 
+    .o_form_sheet .sh_full_screen_icon_div .full_form_toggle{border: 1px solid  #b8b8b8; border-top: 0px;border-right: 0px;}
+}
+@if $theme_style == 'style_7'{ 
+    .o_form_sheet .sh_full_screen_icon_div .full_form_toggle{padding: 2px 2px;}
+    @media only screen and (min-width: 1420px){
+        .o_content .o_form_view .oe_button_box{margin-left: -32px;margin-right: -32px;}
+    }
+}
+.modal .modal-dialog .o_form_sheet .sh_full_screen_icon_div{display: none;}

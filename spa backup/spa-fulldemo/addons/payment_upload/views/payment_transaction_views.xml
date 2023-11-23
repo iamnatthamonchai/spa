@@ -1,0 +1,28 @@
+<odoo>
+
+    <record id="transaction_form_extend" model="ir.ui.view">
+        <field name="name">transaction.form.extend</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.payment_transaction_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group" position="inside">
+                <group>
+                    <field name="payment_slip_attachment" widget='image'/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="payment_transaction_list_action" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="res_model">payment.transaction</field>
+        <field name="view_mode">tree, form, kanban</field>
+    </record>
+
+    <menuitem
+        action='payment.action_payment_transaction'
+        id='payment_transaction_menu'
+        parent='website.menu_website_configuration'
+        groups="base.group_user"
+        sequence='10' />
+</odoo>

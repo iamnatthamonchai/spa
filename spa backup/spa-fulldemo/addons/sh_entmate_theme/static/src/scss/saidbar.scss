@@ -1,0 +1,33 @@
+
+/*--style-3--*/
+.sh_entmate_theme_appmenu_div.show  .dropdown-item{width:11%!important}
+.sh_entmate_theme_appmenu_div  .dropdown-item{width:auto!important}
+.sh_entmate_theme_appmenu_div span.dropdown-item.o_app img{display: block;width: 50%;margin: 0 AUTO;}
+.sh_entmate_theme_appmenu_div span.dropdown-item.o_app{text-align:center;padding-left: 14px !important;padding: 10px 0px !important;}
+.o_main_navbar .sh_entmate_theme_appmenu_div{transition: left .6s cubic-bezier(0.190, 1.000, 0.220, 1.000) !important;}
+.o_main_navbar .sh_entmate_theme_appmenu_div.show div.o-dropdown--menu.dropdown-menu.d-block{transition: left .6s cubic-bezier(0.190, 1.000, 0.220, 1.000) !important;padding:15px!important;width:100% !important;position: fixed!important; left:0% !important;}
+@media (max-width:1023px){
+.sh_entmate_theme_appmenu_div.show .dropdown-item{width:14.2%!important;}
+}
+@media (max-width: 767.98px){
+.sh_entmate_theme_appmenu_div span.dropdown-item.o_app{ width: 33.3%!important; padding: 10px 18px !important;white-space : nowrap;overflow: hidden;text-overflow: ellipsis;}
+.sh_entmate_theme_appmenu_div.show div.o-popper-position.dropdown-menu{top: 40px !important;}
+.o_main_navbar .sh_entmate_theme_appmenu_div.show div.o-dropdown--menu.dropdown-menu.d-block{display: flex !important;flex-direction: row;flex-wrap: wrap;background: transparent;/*height: 82vh;*/ ; max-height: 83%;border: 0px;}
+.o_main_navbar .sh_entmate_theme_appmenu_div.show div.o-dropdown--menu.dropdown-menu.d-block span.dropdown-item.o_app a{color: $header_font_color;}
+}
+header nav.o_main_navbar .o_menu_apps li.dropdown {position: unset;}
+.sh_entmate_theme_appmenu_div span.dropdown-item.o_app img{display: block;width: 50%;margin: 0 AUTO;}
+.sh_entmate_theme_appmenu_div span.dropdown-item.o_app{text-align: center;padding-left: 14px !important;padding: 10px 0px !important;color: $header_font_color;}
+.o_main_navbar .sh_entmate_theme_appmenu_div.show div.o-dropdown--menu.dropdown-menu.d-block{width: 100% !important;}
+.sh_entmate_theme_appmenu_div span.dropdown-item.o_app.active{color: #ffffff !important;}
+.o_onboarding.o_onboarding_violet .o_onboarding_step_action{color: $primaryColor !important;}
+
+
+.o_main_navbar .sh_entmate_theme_appmenu_div.show div.o-dropdown--menu.dropdown-menu.d-block{transition: none !important;}
+.sh_entmate_theme_appmenu_div span.dropdown-item.o_app{transition: none !important;}
+.o_main_navbar .sh_entmate_theme_appmenu_div{transition: none !important;}
+/*--style-3--*/
+
+.o_main_navbar .sh_entmate_theme_appmenu_div div.o-dropdown--menu.dropdown-menu.d-block{transition: none !important;}
+
+

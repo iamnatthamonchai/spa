@@ -1,0 +1,26 @@
+{
+    'name': 'AE Upload Payment',
+    'version': '1.2',
+    'sequence': 360,
+    'author': 'Tailor Solutions Co.,Ltd.',
+    'summary': 'Payment with upload dialog',
+    'description': """AE extension for ecommerce payment with upload bank statement""",
+    'category': 'Accounting/Payment Acquirers',
+    'images': ['/static/description/icon.png', '/static/ae_logo.png'],
+    'data': [
+        'views/payment_views.xml',
+        'views/payment_transfer_templates.xml',
+        'views/payment_promptpay_qr.xml',
+        'views/payment_upload.xml',
+        'views/payment_transaction_views.xml',
+        'views/sale_order_portal_upload_templates.xml',
+        'data/payment_acquirer_data.xml'
+    ],
+    'depends': ['payment', 'website_sale'],
+    'external_dependencies': {},
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+    # 'uninstall_hook': 'uninstall_hook',
+    'license': 'LGPL-3',
+}

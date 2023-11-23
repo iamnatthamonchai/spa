@@ -1,0 +1,69 @@
+<odoo>
+    <template id="payment_upload_web_display" inherit_id="website_sale.confirmation">
+        <xpath expr="//div[@id='oe_structure_website_sale_confirmation_2']" position="after">
+            <t t-set="payment_tx" t-value="order.get_portal_last_transaction()" />
+            <t t-set="payment_tx_id" t-value="payment_tx.id" />
+            <t t-set="payment_slip_image" t-value="'/web/image?model=payment.transaction&amp;field=payment_slip_attachment&amp;id=' + str(payment_tx.id)"/>
+            <t
+                t-if="payment_tx.acquirer_id.provider == 'transfer'"
+            >
+            <script type="text/javascript">
+                function PreviewImage() {
+                    try{
+                        var oFReader = new FileReader();
+                        oFReader.readAsDataURL(document.getElementById("payment_slip_image").files[0]);
+
+                        oFReader.onload = function (oFREvent) {
+                            document.getElementById("uploadPreview").src = oFREvent.target.result;
+                        };
+                    } catch(error){}
+                };
+            </script>
+            <div class="oe_website_sale_tx_status mt-3">
+                    <div class="card bg-info">
+                        <div class="card-header">
+                            <h3>แจ้งชำระเงิน</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="container">
+                            <form id="uploadSlipForm" t-attf-action="/payment/transfer/upload/payment-slip" method="post" enctype="multipart/form-data">
+                                <img id="uploadPreview"
+                                     t-att-src="payment_slip_image"
+                                     style="max-width:300px;width:100%"/>
+                                <input type="file"
+                                       id="payment_slip_image"
+                                       name="payment_slip_image"
+                                       class="o_website_form_input form-control"
+                                       data-show-upload="true"
+                                       data-show-caption="true"
+                                       data-show-preview="true"
+                                       onchange="PreviewImage();"
+                                       accept="image/*"/>
+                                <input type="submit"
+                                       class="btn btn-success"
+                                       style="margin-top:10px;"
+                                       value="ยืนยันชำระเงิน"/>
+
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <input type="hidden" name='payment_tx_id' t-att-value='payment_tx_id'/>
+                                <t
+                                    t-if="len(payment_tx.sale_order_ids) > 0"
+                                >
+                                    <input type="hidden" name='return_url' t-att-value="payment_tx.sale_order_ids[0].get_portal_url()"/>
+                                </t>
+                                <t t-else="">
+                                    <input type="hidden" name='return_url' t-att-value="payment_tx.return_url"/>
+                                </t>
+
+                                <input type="hidden" name='reference' t-att-value='payment_tx.reference'/>
+                                <input type="hidden" name='amount' t-att-value='payment_tx.amount'/>
+                                <input type="hidden" name='currency' t-att-value='payment_tx.currency_id.name'/>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

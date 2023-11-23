@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    
+    <!-- <t t-name="NightModeTemplate">
+		<div class="o_night_mode" style="margin-top: 13px;">
+			<t t-if="widget.day_mode">
+				<img src="/sh_entmate_theme/static/src/icons/moon.png" id="moon_button" style="height: 15px; width: 15px;"/> 
+			</t>
+			<t t-else="">
+			 	<img src="/sh_entmate_theme/static/src/icons/sun.png" id="sun_button" style="height: 15px; width: 15px;"/> 
+			</t>
+			 <input type="checkbox" id="night_checkbox" style="display:none;"/>
+
+        </div>
+	</t> -->
+	<t t-name="NightModeTemplate">
+		<div class="o_night_mode">
+				<img src="/sh_entmate_theme/static/src/icons/moon.png" id="moon_button" style="height: 15px; width: 15px;"/> 
+			 	<img src="/sh_entmate_theme/static/src/icons/sun.png" id="sun_button" style="height: 15px; width: 15px;display:none;"/> 
+			 <input type="checkbox" id="night_checkbox" style="display:none;"/>
+
+        </div>
+	</t>
+</templates>

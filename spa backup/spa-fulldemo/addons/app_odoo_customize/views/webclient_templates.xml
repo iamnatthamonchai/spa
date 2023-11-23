@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="app_custom_layout" inherit_id="web.layout" name="Custom Layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or 'PlugandPlay Smart'"/>
+        </xpath>
+    </template>
+</odoo>

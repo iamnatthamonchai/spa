@@ -1,0 +1,116 @@
+<odoo>
+    <template id="sale_order_portal_extend" name="Upload Payment" inherit_id="sale.sale_order_portal_template" priority="20">
+        <xpath expr="//div[@id='portal_sale_content']" position="before">
+            <div>
+                <t t-set="payment_tx" t-value="sale_order.get_portal_last_transaction()" />
+                <t t-set="payment_tx_id" t-value="payment_tx.id" />
+                <t t-set="payment_slip_image" t-value="'/web/image?model=transaction&amp;field=payment_slip_attachment&amp;id=' + str(payment_tx.id)"/>
+                <t
+                    t-if="payment_tx.acquirer_id.provider == 'transfer'"
+                >
+                    <!-- Prompt Pay QRCode -->
+                    <t
+                        t-if="payment_tx.acquirer_id.qr_code_promptpay and payment_tx.acquirer_id.provider == 'transfer'"
+                    >
+                        <div class="oe_website_sale_tx_status mt-3">
+                            <div class="card bg-info">
+                                <div class="card-header">
+                                    <h3>PromptPay QR Code</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="p-auto">
+                                                    <img
+                                                        class="float-left"
+                                                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', payment_tx.acquirer_id.promptpayPayload(payment_tx.amount) , 150, 150)"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div class="p-3">
+                                                    <ul class="list-group">
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center"
+                                                        >
+                                  PromptPay ID
+                                  <span class="badge badge-primary badge-pill">
+                                                                <t
+                                                                    t-esc="payment_tx.acquirer_id.promptpay_id"
+                                                                />
+                                                            </span>
+                                </li>
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center"
+                                                        >
+                                    Amount
+                                  <span class="badge badge-primary badge-pill">
+                                                                <t
+                                                                    t-esc="payment_tx.amount"
+                                                                />
+                                                            </span>
+                                </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+
+                    <!-- Upload Cards -->
+                    <script type="text/javascript">
+                        function PreviewImage() {
+                            try{
+                                var oFReader = new FileReader();
+                                oFReader.readAsDataURL(document.getElementById("payment_slip_image").files[0]);
+
+                                oFReader.onload = function (oFREvent) {
+                                    document.getElementById("uploadPreview").src = oFREvent.target.result;
+                                };
+                            } catch(error){}
+                        };
+                    </script>
+                    <div class="oe_website_sale_tx_status mt-3">
+                    <div class="card bg-info">
+                        <div class="card-header">
+                            <h3>แจ้งชำระเงิน</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="container">
+                            <form id="uploadSlipForm" t-attf-action="/payment/transfer/upload/payment-slip" method="post" enctype="multipart/form-data">
+                                <img id="uploadPreview"
+                                     t-att-src="payment_slip_image"
+                                     style="max-width:300px;width:100%"/>
+                                <input type="file"
+                                       id="payment_slip_image"
+                                       name="payment_slip_image"
+                                       class="o_website_form_input form-control"
+                                       data-show-upload="true"
+                                       data-show-caption="true"
+                                       data-show-preview="true"
+                                       onchange="PreviewImage();"
+                                       accept="image/*"/>
+                                <input type="submit"
+                                       class="btn btn-success"
+                                       style="margin-top:10px;"
+                                       value="ยืนยันชำระเงิน"/>
+
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <input type="hidden" name='payment_tx_id' t-att-value='payment_tx_id'/>
+                                <input type="hidden" name='return_url' t-att-value='return_url'/>
+                                <input type="hidden" name='amount' t-att-value='payment_tx.amount'/>
+                                <input type="hidden" name='currency' t-att-value='payment_tx.currency_id.name'/>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>

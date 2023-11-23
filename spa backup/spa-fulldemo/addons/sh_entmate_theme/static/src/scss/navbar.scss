@@ -1,0 +1,43 @@
+.o_main_navbar > ul > li > a, .o_main_navbar > ul > li > label,
+.o_main_navbar .o_menu_systray .sh_bookmark .o_user_bookmark_menu a{color:$header_font_color;}
+.o_main_navbar>ul>li>a:hover,
+.o_main_navbar>ul>li>label:hover {
+	color: #fff;
+	background-color:$header_hover_color;
+}
+.o_main_navbar > a:focus, .o_main_navbar > a:active, .o_main_navbar > a:focus:active, .o_main_navbar > button:focus, .o_main_navbar > button:active, .o_main_navbar > button:focus:active
+{
+background-color: $header_active_color;
+}
+.o_main_navbar .show .dropdown-toggle{background-color: $header_active_color;}
+.o_main_navbar>a:hover,
+.o_main_navbar>a:focus,
+.o_main_navbar>button:hover,
+.o_main_navbar>button:focus {
+	background-color: $header_active_color;
+}
+
+.o_main_navbar .o_night_mode{
+	padding: 0 0.75rem;
+}
+.o_main_navbar .sh_entmate_theme_appmenu_div.o_navbar_apps_menu:hover,
+.o_main_navbar .o_menu_systray .sh_bookmark:hover,
+.o_main_navbar .o_menu_systray .sh_bookmark.show {
+    background: rgba(0, 0, 0, 0.08);
+}
+.o_main_navbar .o_menu_systray .sh_bookmark:hover{color: $header_hover_color;}
+.sh_night_mode .dropdown-item .o_menu_brand:hover {background-color:transparent !important ;}	
+.sh_night_mode .o_main_navbar > a.dropdown-item.o_menu_brand:hover{background-color: transparent !important;}
+.o_main_navbar .dropdown.o_navbar_apps_menu.sh_entmate_theme_appmenu_div .dropdown-toggle{padding: 0px;}
+.o_main_navbar .dropdown.o_navbar_apps_menu.sh_entmate_theme_appmenu_div{padding: 0px;}
+.o_main_navbar .dropdown.o_navbar_apps_menu.sh_entmate_theme_appmenu_div .dropdown-toggle:hover,.o_main_navbar .dropdown.o_navbar_apps_menu.sh_entmate_theme_appmenu_div.show .dropdown-toggle{background-color: transparent;}
+.o_main_navbar .o_navbar_apps_menu.sh_entmate_theme_appmenu_div .dropdown-toggle a#app_toggle.full .fa.fa-th{padding: 15px;}
+
+
+/*Language Selector*/
+.o_main_navbar .sh_language_icon svg{fill: $header_font_color;}
+// .o_main_navbar .sh_language_icon svg:hover{fill: $header_hover_color;}
+.o_main_navbar .o_menu_systray .sh_language_icon svg{width: 15px;}
+.o_menu_systray .sh_language_icon .sh_user_language_list_cls .dropdown-item.active:not(.dropdown-item_active_noarrow):before, .o_menu_systray .sh_language_icon .sh_user_language_list_cls .dropdown-item.selected:not(.dropdown-item_active_noarrow):before{display: none;}
+.o_menu_systray .sh_language_icon .sh_user_language_list_cls .dropdown-item.active:focus, .o_menu_systray .sh_language_icon .sh_user_language_list_cls .dropdown-item.active:hover, .o_menu_systray .sh_language_icon .sh_user_language_list_cls .dropdown-item.selected:focus, .o_menu_systray .sh_language_icon .sh_user_language_list_cls .dropdown-item.selected:hover,.o_menu_systray .sh_language_icon .sh_user_language_list_cls .dropdown-item.active{background-color: rgba(0, 0, 0, 0.08);}
+.o_menu_systray .sh_language_icon .sh_user_language_list_cls img.sh_lang_flag{height: 25px;width: 25px;object-fit: cover;margin-right: 5px;}
